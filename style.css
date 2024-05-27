@@ -13,9 +13,7 @@ img{
 }
 
 body {
-    font-family: "Shippori Mincho B1", serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     background-color: #f0f8ff;
     color: #333;
@@ -38,8 +36,12 @@ header .container {
     font-size: 2.5em;
     margin: 0;
     font-family: "Darumadrop One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    color: #fff;
+}
+
+h2, h3 {
+    font-family: 'Darumadrop One', sans-serif;
+    color: #2e8b57;
 }
 
 nav ul {
@@ -59,17 +61,16 @@ nav ul li a {
     font-size: 1.2em;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-h2{
-    font-family: 'Darumadrop One', sans-serif;
-    color: #2e8b57
+#stories a:hover {
+    text-decoration: underline;
 }
 
-h3{
-    color: #2e8b57
+button:focus {
+    outline: 2px solid #32cd32;
 }
 
 .hero {
@@ -110,6 +111,7 @@ section p, section article p, section ul {
 
 .container {
     max-width: 80%;
+    height: auto;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
@@ -156,8 +158,6 @@ section p, section article p, section ul {
     cursor: pointer;
 } */
 
-
-
 .message {
     background-color: #fff;
     padding: 20px;
@@ -175,25 +175,54 @@ section p, section article p, section ul {
     margin-bottom: 15px;
 }
 
-.fadeup {
-    animation-name: fadeUpAnime;/*アニメーションの定義名*/
-    animation-duration:3s;/*アニメーション変化時間 ※デフォルト*/
-    animation-fill-mode:forwards;/*アニメーションの開始と終了時の状態を指定*/
-    opacity:0;
-    } 
-
-    @keyframes fadeUpAnime{
-        from {
-          opacity: 0;
-        transform: translateY(100px);
-        }
-      
-        to {
-          opacity: 1;
-        transform: translateY(0);
-        }
-      } */
-      
+/* 桜を表示するコンテナのスタイル */
+.cherry-blossom-container {
+    position: relative;
+    height: 80vh; /* コンテナの高さ */
+    width: 100%; /* コンテナの横幅 */
+    overflow: hidden; /* コンテナからはみ出した要素を隠す */
+  }
+  
+  /* 桜の花びらのスタイル */
+  .petal {
+    position: absolute;
+    background-color: #ffc0cb; /* 花びらの色 */
+    border-radius: 150% 0 150% 0;
+    animation: animate-petal 10s linear;
+  }
+  
+  .petal::after {
+    content: "";
+    position: absolute;
+    top: -14%;
+    left: -10%;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #ffc0cb;
+    border-radius: 150% 0 150% 0;
+    transform: rotate(15deg);
+  }
+  
+  /* 花びらが降るアニメーション */
+  @keyframes animate-petal {
+    0% {
+      top: 0;
+      opacity: 0;
+      transform: rotate(0deg);
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      top: 100vh;
+      transform: rotate(3000deg);
+    }
+  }
 
 .content-section article{
 background-color: #f9f9f9;
@@ -252,13 +281,6 @@ background-color: #f9f9f9;
 .event-button{
     margin-top: 20px;
 }
-/* main {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-} */
 
 .story {
     margin-bottom: 40px;
@@ -592,6 +614,16 @@ footer p {
 
     .forum .thread-card {
         width: 100%;
+    }
+}
+
+/* メディアクエリを使用してiPhone 13 Pro用にフォントサイズを調整 */
+@media screen and (max-width: 390px) {
+    .hero h2 {
+        font-size: 24px;
+    }
+    .hero p {
+        font-size: 16px;
     }
 }
 
