@@ -263,6 +263,10 @@ background-color: #F4F5F7;
 
 /* ホーム　戦争の影響 */
 
+.impact-h4{
+    font-size: 20px;
+}
+
 .impact-ul{
     text-align: left;
 }
@@ -561,6 +565,72 @@ footer p {
         padding: 20px;
     }
 
+    /* カルーセルのスタイル */
+.message-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.message-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.message-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.message-slide p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+    .message-slider {
+        display: flex;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .message-slide {
+        flex: none;
+        scroll-snap-align: start;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+    
+    .message-slide p {
+        font-size: 1.2em;
+        line-height: 1.5;
+        text-align: center;
+        margin: 0;
+    }
+
     section h2 {
         font-size: 1.5em;
     }
@@ -596,10 +666,17 @@ footer p {
 /* メディアクエリを使用してiPhone 13 Pro用にフォントサイズを調整 */
 @media screen and (max-width: 390px) {
     .hero h2 {
-        font-size: 24px;
+        font-size: 18px;
     }
     .hero p {
-        font-size: 16px;
+        font-size: 10px;
+    }
+
+    .message-slide{
+        font-size: 18px;
+    }
+
+    .cherry-blossom-container{
+        height: auto;
     }
 }
-
