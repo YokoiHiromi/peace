@@ -1,5 +1,16 @@
 'use strict';
 
+
+// スクロールに応じてtopの文字の透明度を変える
+window.addEventListener('scroll', () => {
+    const heroContent = document.querySelector('.hero-content');
+    const scrollPosition = window.scrollY;
+
+    if (scrollPosition > 200) {
+        heroContent.classList.add('scroll-fade-in');
+    }
+});
+
 // sakura
 window.addEventListener('DOMContentLoaded', () => {
     // コンテナを指定
@@ -27,6 +38,20 @@ window.addEventListener('DOMContentLoaded', () => {
     setInterval(createPetal, 300);
   });
 
+  //topボタン
+window.addEventListener('scroll',()=>{
+    const position = window.scrollY;
+    // console.log(position);
+
+    const topBtn = document.querySelector('#page-top');
+    if(position>=150){
+        topBtn.classList.add('open');
+    } else {
+        topBtn.classList.remove('open')
+    }
+});
+
+//コミュニティ　掲示板
 document.getElementById('new-thread-btn').addEventListener('click', function() {
     document.getElementById('new-thread-section').style.display = 'block';
 });
@@ -86,13 +111,4 @@ document.querySelectorAll('.cta-button').forEach(button => {
     });
 });
 
-window.addEventListener('scroll',()=>{
-    const position = window.scrollY;
 
-    const topBtn = document.querySelector('#page-top');
-    if(position>=300){
-        topBtn.classList.add('open');
-    } else {
-        topBtn.classList.remove('open')
-    }
-});
