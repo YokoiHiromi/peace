@@ -31,12 +31,13 @@
     </header>
     
     <main class="container">
-        <h2>イベントに参加する</h2>
+        <div class="hero-background"></div>
+        <h3>イベントに参加する</h3>
         <p>私たちが開催するイベントに参加して、平和と自己実現のための活動をサポートしましょう。以下のイベントリストから参加したいイベントを選び、詳細を確認してください。</p>
         
         <section class="event-list content-section">
             <article class="event shadow">
-                <h3>平和ウォーク</h3>
+                <h4>平和ウォーク</h4>
                 <p><strong>日付:</strong> 2024年6月10日</p>
                 <p><strong>場所:</strong> 東京・代々木公園</p>
                 <p><strong>概要:</strong> 平和の象徴としてのウォークイベントです。参加者全員で平和のメッセージを広めましょう。</p>
@@ -44,7 +45,7 @@
             </article>
             
             <article class="event shadow">
-                <h3>自己実現ワークショップ</h3>
+                <h4>自己実現ワークショップ</h4>
                 <p><strong>日付:</strong> 2024年7月15日</p>
                 <p><strong>場所:</strong> 大阪・梅田センター</p>
                 <p><strong>概要:</strong> 自己実現のための具体的なステップを学びます。実際の成功事例を基にしたワークショップです。</p>
@@ -52,7 +53,7 @@
             </article>
             
             <article class="event shadow">
-                <h3>平和セミナー</h3>
+                <h4>平和セミナー</h4>
                 <p><strong>日付:</strong> 2024年8月20日</p>
                 <p><strong>場所:</strong> 名古屋・市民会館</p>
                 <p><strong>概要:</strong> 専門家を招いての平和に関するセミナーです。最新の平和研究と実践について学びます。</p>
@@ -60,19 +61,19 @@
             </article>
         </section>
         
-        <section id="register" class="registration-form">
-            <h3>イベント登録フォーム</h3>
+        <section id="register" class="registration-form content-section">
+            <h4>イベント登録フォーム</h4>
             <p>以下のフォームに必要事項を記入して、イベントに登録してください。</p>
             <form action="submit_registration.php" method="post">
                 <input type="hidden" id="event" name="event" value="">
                 
-                <label for="name">お名前:</label>
+                <label for="name">お名前</label>
                 <input type="text" id="name" name="name" required>
                 
-                <label for="email">メールアドレス:</label>
+                <label for="email">メールアドレス</label>
                 <input type="email" id="email" name="email" required>
                 
-                <label for="message">メッセージ:</label>
+                <label for="message">メッセージ</label>
                 <textarea id="message" name="message" required></textarea>
                 
                 <button type="submit" class="btn">登録する</button>
