@@ -11,6 +11,68 @@ window.addEventListener('scroll', () => {
     }
 });
 
+ // メッセージスライド
+ document.addEventListener('DOMContentLoaded', () => {
+     const messageSlider = document.querySelector('.message-slider');
+     let startX;
+     let scrollLeft;
+
+     messageSlider.addEventListener('mousedown', (e) => {
+         startX = e.pageX - messageSlider.offsetLeft;
+         scrollLeft = messageSlider.scrollLeft;
+         messageSlider.style.cursor = 'grabbing';
+         messageSlider.style.userSelect = 'none';
+     });
+
+     messageSlider.addEventListener('mouseleave', () => {
+         messageSlider.style.cursor = 'grab';
+     });
+
+     messageSlider.addEventListener('mouseup', () => {
+         messageSlider.style.cursor = 'grab';
+         messageSlider.style.userSelect = 'auto';
+     });
+
+     messageSlider.addEventListener('mousemove', (e) => {
+         if (!startX) return;
+         const x = e.pageX - messageSlider.offsetLeft;
+         const walk = (x - startX) * 2; // スクロールの速さを調整
+        messageSlider.scrollLeft = scrollLeft - walk;
+    });
+ });
+
+// メッセージカルーセル
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.message-carousel-track');
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.carousel-button.next');
+    const prevButton = document.querySelector('.carousel-button.prev');
+
+    const slideWidth = slides[0].getBoundingClientRect().width;
+
+    // スライドの横並びを設定
+    slides.forEach((slide, index) => {
+        slide.style.left = `${slideWidth * index}px`;
+    });
+
+    let currentIndex = 0;
+
+    const moveToSlide = (track, currentIndex) => {
+        track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+    }
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        moveToSlide(track, currentIndex);
+    });
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        moveToSlide(track, currentIndex);
+    });
+});
+
+
 // sakura
 window.addEventListener('DOMContentLoaded', () => {
     // コンテナを指定
@@ -44,7 +106,7 @@ window.addEventListener('scroll',()=>{
     // console.log(position);
 
     const topBtn = document.querySelector('#page-top');
-    if(position>=150){
+    if(position>=250){
         topBtn.classList.add('open');
     } else {
         topBtn.classList.remove('open')
@@ -110,5 +172,8 @@ document.querySelectorAll('.cta-button').forEach(button => {
         document.getElementById('event').value = event;
     });
 });
+
+
+
 
 
