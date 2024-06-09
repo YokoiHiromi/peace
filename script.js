@@ -1,5 +1,18 @@
 'use strict';
 
+//メタビューポート
+onst adjustViewport = (triggerWindowWidth = 370) => {
+  const metaViewport = document.querySelector('meta[name="viewport"]');
+  const viewportValue =
+    window.outerWidth < triggerWindowWidth
+      ? `width=${triggerWindowWidth}, user-scalable=no, target-densitydpi=device-dpi`
+      : 'width=device-width, initial-scale=1';
+  metaViewport.setAttribute('content', viewportValue);
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+  adjustViewport(); // 引数に画面幅の数値を与えると、その値が画面幅が縮小される起点になる
+});
 
 // スクロールに応じてtopの文字の透明度を変える
 window.addEventListener('scroll', () => {
