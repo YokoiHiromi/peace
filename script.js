@@ -1,7 +1,7 @@
 'use strict';
 
 //メタビューポート
-onst adjustViewport = (triggerWindowWidth = 370) => {
+const adjustViewport = (triggerWindowWidth = 370) => {
   const metaViewport = document.querySelector('meta[name="viewport"]');
   const viewportValue =
     window.outerWidth < triggerWindowWidth
